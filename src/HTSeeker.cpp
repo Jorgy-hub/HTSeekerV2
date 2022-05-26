@@ -1,18 +1,16 @@
 # include "HTSeeker.h"
 
-void HTSeekerV2::Initialize(int mode = AC) {
-    if(mode != AC && mode != DC)
-        static_assert(false, "Mode should be AC or DC");
-    
-    int HTSeekerV2::Mode = mode;
+int HTSeekerV2::Mode = AC;
+
+void HTSeekerV2::Initialize(int mode) {
+    if(mode != AC || mode != DC) // "Mode should be only AC or DC"
+        mode = 1;
+    HTSeekerV2::Mode = mode;
     
     Wire.begin();
     Wire.beginTransmission(HTSeekerV2::Address);
     Wire.write(0x00);
     Wire.endTransmission();
-    
-    boolean Verification = Verify();
-    static_assert(Verification, "That isn't a HT InfraRed Seeker V2");
 
     while(Wire.available() > 0)
         Wire.read();  
@@ -43,7 +41,7 @@ boolean HTSeekerV2::Verify() {
         for(byte i = 0; i < 16; i++) 
             Verification[i] = Wire.read();
 
-    return strncmp(Verification, "HiTechncNewIRDir") == 0;
+    return strncmp(Verification, "HiTechncNewIRDir", 16) == 0;
 };
 
 IR_Result HTSeekerV2::Read() {
