@@ -1,0 +1,21 @@
+{
+    "name": "HTSeekerV2",
+    "description": "High Tech Infrared Seeker V2 Sensor Library",
+    "keywords":"high tech, sensor, seeker, ir",
+    "authors": [
+        {
+            "name": "Uraraka-Chan",
+            "email": "jorgy@saya.gg",
+            "maintainer": true
+        }
+    ],
+    "repository": {
+        "type":"git",
+        "url":"https://github.com/Uraraka-Chan/HTSeekerV2"
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "frameworks":"arduino",
+    "platform": "*",
+    "headers": "HTSeeker.h"
+}
