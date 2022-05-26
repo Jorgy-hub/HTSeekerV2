@@ -16,11 +16,11 @@ class HTSeekerV2 {
         /**
          * @brief 8 Bits = I2C Address.
          */
-        static int Address = 0x10 / 2;
+        const static int Address = 0x10 / 2;
         /**
          * @brief Lecture Mode AC or DC.
          */
-        static int Mode = AC;
+        static int Mode;
     public:
         /**
          * @brief Function to Initialize and Construct the Seeker.

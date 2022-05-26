@@ -3,7 +3,8 @@
 void HTSeekerV2::Initialize(int mode = AC) {
     if(mode != AC && mode != DC)
         static_assert(false, "Mode should be AC or DC");
-    Mode = mode;
+    
+    int HTSeekerV2::Mode = mode;
     
     Wire.begin();
     Wire.beginTransmission(HTSeekerV2::Address);
